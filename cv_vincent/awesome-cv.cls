@@ -71,7 +71,7 @@
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
 % Needed to manage math fonts
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage[math-style=TeX]{unicode-math}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
@@ -406,7 +406,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false}%
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \href{mailto:\@email}{\faEnvelope\acvHeaderIconSep\@email}%
@@ -416,7 +416,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false}%
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \href{http://\@homepage}{\faHome\acvHeaderIconSep\@homepage}%
@@ -426,7 +426,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false}%
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
@@ -436,7 +436,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false} %
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
@@ -446,7 +446,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false}%
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
@@ -456,7 +456,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false} %
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \href{https://twitter.com/\@twitter}{\faTwitter\acvHeaderIconSep\@twitter}%
@@ -466,7 +466,7 @@
         {%
           \ifbool{isstart}%
             {%
-              \setbool{istart}{false} %
+              \setbool{isstart}{false}%
             }%
             {\acvHeaderSocialSep}%
           \faSkype\acvHeaderIconSep\@skype%
@@ -513,7 +513,7 @@
 }
 
 
-% Define an environment for cventry
+% Define an environment for cventries
 \newenvironment{cventries}{%
   \begin{center}
 }{%
@@ -530,7 +530,8 @@
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
-  \end{tabular*}
+  \end{tabular*}%
+  \vspace{2mm}%
 }
 
 % Define an entry of cv information
@@ -562,7 +563,7 @@
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
   \end{tabular*}
 }
-% Define an environment for cvsubentry
+% Define an environment for cvsubentries
 \newenvironment{cvsubentries}{%
   \begin{center}
 }{%
@@ -586,7 +587,7 @@
   \end{tabular*}
 }
 
-% Define an environment for cvhonor
+% Define an environment for cvhonors
 \newenvironment{cvhonors}{%
   \begin{center}
     \setlength\tabcolsep{0pt}
@@ -602,7 +603,7 @@
   \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
 }
 
-% Define an environment for cvskill
+% Define an environment for cvskills
 \newenvironment{cvskills}{%
   \begin{center}
     \setlength\tabcolsep{1ex}
