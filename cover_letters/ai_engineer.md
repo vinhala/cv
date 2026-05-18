@@ -5,7 +5,7 @@ Template to be used for writing cover letter for specific job applications
 - ORGANISATION: Organisation at which the respective job application is directed
 - RECIPIENT: Recipient of the cover letter. If no person can be deduced, a global term like 'Team at ORGANISATION' should be used
 - JOB_POSTING: Name of the position for which the application is being written. Usually something like 'AI Engineer'
-- JOB_REQUIREMENTS: Requirements stated by the job posting. This is the part that needs to be adapted to the job posting.
+- JOB_FIT: Arguments why I am a perfect fit for the job posting in one or two sentences, founded in experience and skills.
 
 ## Template
 **Application for JOB_POSTING at ORGANISATION**
@@ -21,9 +21,9 @@ As mentioned before my development of AI enabled systems goes back to a time bef
 
 With the heavy use of LLM agents in the area of software development the skills that matter most are usually no longer deep knowledge about a single tech stack but the ability to understand entire systems and how to ensure that they can reliably and efficiently fulfill the user's needs and requirements. My experience across diverse areas of software development, from building and integrating with embedded devices to building highly distributed microservice backends, has allowed me to acquire the necessary knowlede and mindset that will allow software developers to build better systems even faster going forward.
 
-In your posting you state that you are looking for someone who can JOB_REQUIREMENTS. I am certain that with my skills and experience and your vision and culture we will not only be able to achieve these goals but exceed them.
+I am sure you will find me to be a great fit for the open position because JOB_FIT
 
-I am looking forward to getting to know you all better and the ways we can built awesome systems together!
+Looking forward to getting to know you all better and the ways we can built awesome systems together!
 
 Best regards,
 
