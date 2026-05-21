@@ -10,8 +10,9 @@ Helps Vincent prepare a job application by:
 1. Picking the matching cover letter template under `cover_letters/`.
 2. Filling it in for the specific posting, in the voice of the existing exemplar (`cover_letters/little_journey_senior_fullstack_engineer.md`).
 3. Making targeted edits to the relevant CV `.tex` sections so the resume emphasizes what the posting asks for.
+4. Rendering the cover letter to PDF via `cover_letters/md_to_pdf.sh`.
 
-The agent does NOT rebuild the PDF automatically — it tells the user to run `make pdf` after reviewing the CV changes.
+The agent renders the cover letter PDF automatically, but does NOT rebuild the CV PDF — it tells the user to run `make pdf` after reviewing the CV changes.
 
 ## Inputs
 
@@ -36,7 +37,8 @@ Copy this checklist and track progress:
 - [ ] 4. Draft cover letter (template structure, exemplar voice)
 - [ ] 5. Write cover letter file
 - [ ] 6. Identify CV section edits and apply them
-- [ ] 7. Report changes and tell user to run `make pdf`
+- [ ] 7. Render cover letter PDF via `cover_letters/md_to_pdf.sh`
+- [ ] 8. Report changes and tell user to run `make pdf`
 ```
 
 ### Step 1 — Parse the posting
@@ -114,11 +116,23 @@ Forbidden edits (without explicit user approval):
 
 If the posting would benefit from a more invasive change (e.g. a brand new bullet describing real but uncaptured work), surface a proposal to the user instead of editing silently.
 
-### Step 7 — Report
+### Step 7 — Render the cover letter PDF
 
-After writing files, respond with:
+Convert the new Markdown cover letter to PDF by running:
 
-1. Path to the new cover letter.
+```bash
+./cover_letters/md_to_pdf.sh cover_letters/<company_slug>_<role_slug>.md
+```
+
+The script writes `output/<company_slug>_<role_slug>.pdf`. It uses the `pandoc/latex` Docker image (forced to `linux/amd64` for Apple Silicon hosts) and requires Docker to be running.
+
+If the command fails (e.g. Docker is not running, or the image cannot be pulled), do not retry blindly — surface the error to the user and let them decide whether to start Docker or skip the PDF step.
+
+### Step 8 — Report
+
+After writing files and rendering the PDF, respond with:
+
+1. Path to the new cover letter (Markdown) and the rendered PDF.
 2. Bullet list of CV sections edited, with one-line rationale per edit.
 3. Reminder: "Run `make pdf` to regenerate `output/resume_cv.pdf`."
 
